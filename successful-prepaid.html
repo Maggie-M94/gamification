@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+        <meta name="description" content=""/>
+        <meta name="author" content=""/>
+        <title>Old Buck | Successful</title>
+        <link rel="stylesheet" href="https://use.typekit.net/ihw7jxx.css">
+        <!-- Bootstrap core CSS -->
+        <link href="bootstrap_theme/bootstrap.css" rel="stylesheet" type="text/css">
+        <!-- Custom styles for this template -->
+        <link href="style.css" rel="stylesheet"/>
+        <script>
+        /* Pinegrow Interactions, do not remove */ (function(){try{if(!document.documentElement.hasAttribute('data-pg-ia-disabled')) { window.pgia_small_mq=typeof pgia_small_mq=='string'?pgia_small_mq:'(max-width:767px)';window.pgia_large_mq=typeof pgia_large_mq=='string'?pgia_large_mq:'(min-width:768px)';var style = document.createElement('style');var pgcss='html:not(.pg-ia-no-preview) [data-pg-ia-hide=""] {opacity:0;visibility:hidden;}html:not(.pg-ia-no-preview) [data-pg-ia-show=""] {opacity:1;visibility:visible;display:block;}';if(document.documentElement.hasAttribute('data-pg-id') && document.documentElement.hasAttribute('data-pg-mobile')) {pgia_small_mq='(min-width:0)';pgia_large_mq='(min-width:99999px)'} pgcss+='@media ' + pgia_small_mq + '{ html:not(.pg-ia-no-preview) [data-pg-ia-hide="mobile"] {opacity:0;visibility:hidden;}html:not(.pg-ia-no-preview) [data-pg-ia-show="mobile"] {opacity:1;visibility:visible;display:block;}}';pgcss+='@media ' + pgia_large_mq + '{html:not(.pg-ia-no-preview) [data-pg-ia-hide="desktop"] {opacity:0;visibility:hidden;}html:not(.pg-ia-no-preview) [data-pg-ia-show="desktop"] {opacity:1;visibility:visible;display:block;}}';style.innerHTML=pgcss;document.querySelector('head').appendChild(style);}}catch(e){console&&console.log(e);}})()
+    </script>
+    </head>
+    <body>
+        <section class="logo">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col col-md">
+</div>
+                    <div class="col-8 col-md-4 col-lg-4 col-xl-3 col-sm-6">
+                        <img src="assets/logo.png" id="desktop" class="w-100"/>
+                    </div>
+                    <div class="col col-md">
+</div>
+                </div>
+            </div>
+        </section>
+        <section class="body-content">
+            <div class="container-fluid">
+                <div class="row mb-5">
+                    <div class="col col-lg col-md col-sm">
+</div>
+                    <div class="col-10 col-lg-5 col-md-5 col-sm-10">
+                        <img src="assets/mobile-divider.png" id="divider" class="w-100"/>
+                        <div class="row mb-3">
+                            <div class="col-12 col-lg-12 col-md-12 col-sm-12">
+                                <h1>THANK YOU</h1>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col col-lg col-md col-sm col-xl">
+</div>
+                            <div class="row justify-content-center">
+                                <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-4">
+                                    <div class="">
+                                        <img src="assets/tick.png" alt="R10 graphic" class="prize-img"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col col-lg col-md col-sm col-xl">
+</div>
+                        </div>
+                        <div class="row">
+                            <div class="col col-lg col-md col-sm">
+</div>
+                            <div class="col col-lg col-md col-sm">
+</div>
+                            <div class="row mt-3">
+                                <p>Your airtime will be loaded to the pre-paid
+ number provided. <br>Cheers from Old Buck!</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col col-lg col-md col-sm">
+</div>
+                </div>
+            </div>
+        </section>
+        <section>
+            <div class="row">
+                <div class="col col-md col-lg col-xl col-sm">
+</div>
+                <div class="col-6 col-lg-2 col-md-2 col-sm-6 col-xl-4 mt-3">
+                    <img src="assets/graphic.png" alt="ara-line" class="w-100"/>
+                </div>
+                <div class="col col-md col-lg col-xl col-sm">
+</div>
+            </div>
+        </section>
+        <section class="footer">
+            <div class="container-fluid footer-area">
+                <div class="row">
+                    <div class="col col-md col-xl">
+</div>
+                    <div class="col-10 col-md-9 col-xl-9">
+                        <img src="assets/distell-ara-line.svg" alt="ara-line" class="w-100"/>
+                        <!-- <img src="assets/sab-ara-line.svg" alt="sab-ara-line" class="w-100"/> -->
+                    </div>
+                    <div class="col col-md col-xl">
+</div>
+                </div>
+            </div>
+        </section>
+        <!-- Bootstrap core JavaScript
+    ================================================== -->
+        <script>
+    const spinBtn = document.getElementById('spinBtn');
+    const spinWheel = document.getElementById('spinWheel');
+
+    const prizes = [
+        'R10 Airtime',
+        'No Win',
+        'No Win',
+        'R10 Airtime',
+        'No Win',
+        'R30 Airtime',
+        'No Win',
+        'R10 Airtime'
+    ];
+
+    let currentRotation = 0;
+    let isSpinning = false;
+
+    spinBtn.addEventListener('click', function () {
+        if (isSpinning) return;
+
+        isSpinning = true;
+        spinBtn.disabled = true;
+        spinBtn.textContent = 'Spinning...';
+
+        const fullSpins = 5 * 360;
+        const randomDegrees = Math.floor(Math.random() * 360);
+        const spinAmount = fullSpins + randomDegrees;
+
+        currentRotation += spinAmount;
+
+        spinWheel.style.transform = `rotate(${currentRotation}deg)`;
+
+        setTimeout(function () {
+            const normalizedRotation = currentRotation % 360;
+
+            // Because the wheel rotates clockwise and the pointer is fixed
+            const pointerDegrees = (360 - normalizedRotation) % 360;
+
+            const segmentSize = 360 / prizes.length;
+            const winningIndex = Math.floor(pointerDegrees / segmentSize);
+
+            const prize = prizes[winningIndex];
+
+            isSpinning = false;
+            spinBtn.disabled = false;
+            spinBtn.textContent = 'Spin Again';
+
+            alert('Result: ' + prize);
+
+            console.log({
+                normalizedRotation,
+                pointerDegrees,
+                winningIndex,
+                prize
+            });
+        }, 4000);
+    });
+</script>
+        <!-- Placed at the end of the document so the pages load faster -->
+        <script src="assets/js/popper.min.js"></script>
+        <script src="bootstrap/js/bootstrap.min.js"></script>
+        <script src="pgia/lib/pgia.js"></script>
+    </body>
+</html>
