@@ -113,6 +113,10 @@
             page: 'no-win.html'
         },
         {
+            label: 'R30 Airtime',
+            page: 'r30-winner.html'
+        },
+        {
             label: 'No Win',
             page: 'no-win.html'
         },
@@ -131,15 +135,22 @@
         {
             label: 'No Win',
             page: 'no-win.html'
-        },
-        {
-            label: 'R10 Airtime',
-            page: 'r10-winner.html'
         }
     ];
 
     let currentRotation = 0;
     let isSpinning = false;
+
+    const segmentSize = 360 / prizes.length;
+
+    /*
+        Change this number if the visual result is one segment out.
+
+        0 means your first prize segment starts at the top pointer.
+        If the result is wrong, try:
+        45, 90, 135, 180, 225, 270, or 315
+    */
+    const wheelOffset = 22;
 
     spinBtn.addEventListener('click', function () {
         if (isSpinning) return;
@@ -148,24 +159,24 @@
         spinBtn.disabled = true;
         spinBtn.textContent = 'Spinning...';
 
-        const fullSpins = 5 * 360;
-        const randomDegrees = Math.floor(Math.random() * 360);
-        const spinAmount = fullSpins + randomDegrees;
+        // Choose the prize first
+        const winningIndex = Math.floor(Math.random() * prizes.length);
+        const prize = prizes[winningIndex];
 
-        currentRotation += spinAmount;
+        // Aim for the middle of the selected segment
+        const segmentMiddle = winningIndex * segmentSize + segmentSize / 2;
+
+        // Because the wheel rotates clockwise but the pointer is fixed
+        const targetRotation = 360 - segmentMiddle + wheelOffset;
+
+        const fullSpins = 5 * 360;
+
+        currentRotation += fullSpins + targetRotation;
 
         spinWheel.style.transition = 'transform 4s ease-out';
         spinWheel.style.transform = `rotate(${currentRotation}deg)`;
 
         setTimeout(function () {
-            const normalizedRotation = currentRotation % 360;
-            const pointerDegrees = (360 - normalizedRotation) % 360;
-
-            const segmentSize = 360 / prizes.length;
-            const winningIndex = Math.floor(pointerDegrees / segmentSize);
-
-            const prize = prizes[winningIndex];
-
             window.location.href = prize.page;
         }, 4000);
     });
