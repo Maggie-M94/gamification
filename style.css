@@ -101,11 +101,17 @@ span {
 .btn-primary:focus-visible,
 .btn-primary:hover {
     background-color: #6AA188 !important;
-    box-shadow: none !important;
-    outline: none;
     color: #2e6267;
-    border: 0px none;
-    border-style: none !important;
+    width: 100%;
+    font-size: 1.3em;
+    margin-top: 20px;
+    font-family: bebas-neue-pro-expanded, sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    text-transform: uppercase;
+    outline: none;
+    border: 3px solid #6AA188;
+    border-radius: 5px;
     filter: brightness(110%);
 }
 
