@@ -103,65 +103,7 @@
         </section>
         <!-- Bootstrap core JavaScript
     ================================================== -->
-        <script>
-    const spinBtn = document.getElementById('spinBtn');
-    const spinWheel = document.getElementById('spinWheel');
-
-    const prizes = [
-        'R10 Airtime',
-        'No Win',
-        'No Win',
-        'R10 Airtime',
-        'No Win',
-        'R30 Airtime',
-        'No Win',
-        'R10 Airtime'
-    ];
-
-    let currentRotation = 0;
-    let isSpinning = false;
-
-    spinBtn.addEventListener('click', function () {
-        if (isSpinning) return;
-
-        isSpinning = true;
-        spinBtn.disabled = true;
-        spinBtn.textContent = 'Spinning...';
-
-        const fullSpins = 5 * 360;
-        const randomDegrees = Math.floor(Math.random() * 360);
-        const spinAmount = fullSpins + randomDegrees;
-
-        currentRotation += spinAmount;
-
-        spinWheel.style.transform = `rotate(${currentRotation}deg)`;
-
-        setTimeout(function () {
-            const normalizedRotation = currentRotation % 360;
-
-            // Because the wheel rotates clockwise and the pointer is fixed
-            const pointerDegrees = (360 - normalizedRotation) % 360;
-
-            const segmentSize = 360 / prizes.length;
-            const winningIndex = Math.floor(pointerDegrees / segmentSize);
-
-            const prize = prizes[winningIndex];
-
-            isSpinning = false;
-            spinBtn.disabled = false;
-            spinBtn.textContent = 'Spin Again';
-
-            alert('Result: ' + prize);
-
-            console.log({
-                normalizedRotation,
-                pointerDegrees,
-                winningIndex,
-                prize
-            });
-        }, 4000);
-    });
-</script>
+        
         <!-- Placed at the end of the document so the pages load faster -->
         <script src="assets/js/popper.min.js"></script>
         <script src="bootstrap/js/bootstrap.min.js"></script>
